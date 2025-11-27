@@ -12,7 +12,7 @@ int main() {
         }
     }
 
-    // Imprimir as letras da linha
+    // Imprimir as letras (linha)
     printf("   ");
     for (int i = 0; i < 10; i++) {
         printf("%c  ", linha[i]);
@@ -20,20 +20,37 @@ int main() {
     printf("\n");
 
     // Colocar navio na horizontal
-    for (int j = 2; j <= 4; j++) {
+    for (int j = 4; j <= 6; j++) {  
         tabuleiro[2][j] = 3;
     }
 
     // Colocar navio na vertical
-    for (int i = 4; i <= 6; i++) {
+    for (int i = 4; i <= 6; i++) {  
         tabuleiro[i][7] = 3;
     }
 
-    // Imprimir tabuleiro com número da coluna
+    // Colocar navio diagonal principal
+    for (int i = 0; i < 10; i++) {
+        for (int j = 0; j < 10; j++) {
+            if (i == j && i > 0 && i <= 3) {
+                tabuleiro[i][j] = 3;
+            }
+        }
+    }
+
+    // Colocar navio diagonal secundária
+    for (int i = 0; i < 10; i++) {
+        for (int j = 0; j < 10; j++) {
+            if (i + j == 9 && i >= 4 && i <= 6) {
+                tabuleiro[i][j] = 3;
+            }
+        }
+    }
+
+    // Imprimir tabuleiro com números das colunas
     for (int i = 0; i < 10; i++) {
         printf("%d ", coluna);
         coluna++;
-
         for (int j = 0; j < 10; j++) {
             printf("%d  ", tabuleiro[i][j]);
         }
