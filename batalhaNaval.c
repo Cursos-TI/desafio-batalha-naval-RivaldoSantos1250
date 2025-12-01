@@ -1,13 +1,14 @@
 #include <stdio.h>
-
+#define LINHA 10
+#define COLUNA 10
 int main() {
     char linha[10] = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J'};
-    int coluna = 1;
-    int tabuleiro[10][10];
+    int coluna1 = 1;
+    int tabuleiro[LINHA][COLUNA];
 
     // Preencher o tabuleiro com zeros
-    for (int i = 0; i < 10; i++) {
-        for (int j = 0; j < 10; j++) {
+    for (int i = 0; i < LINHA; i++) {
+        for (int j = 0; j < COLUNA; j++) {
             tabuleiro[i][j] = 0;
         }
     }
@@ -48,8 +49,8 @@ int main() {
         } */
 
     // Colocar habilidade cone
-    for (int i = 0; i < 10; i++) {
-        for (int j = 0; j < 10; j++) {
+    for (int i = 0; i < LINHA; i++) {
+        for (int j = 0; j < COLUNA; j++) {
             if (i == 0 && j == 2) {
                 tabuleiro[i][j] = 3;
             } else if (i == 1 && j >= 1 && j <= 3) {
@@ -61,8 +62,8 @@ int main() {
     }
 
     // Colocar habilidade cruz 
-    for (int i = 0; i < 10; i++) {
-        for (int j = 0; j < 10; j++) {
+    for (int i = 0; i < LINHA; i++) {
+        for (int j = 0; j < COLUNA; j++) {
             if (i == 6 && j >= 1 && j <= 5) {
                 tabuleiro[i][j] = 3;
             } else if (i >= 5 && i <= 7 && j == 3) {
@@ -72,8 +73,8 @@ int main() {
     }
 
     // Colocar habilidade octaedro 
-    for (int i = 0; i < 10; i++) {
-        for (int j = 0; j < 10; j++) {
+    for (int i = 0; i < LINHA; i++) {
+        for (int j = 0; j < COLUNA; j++) {
             if (i == 2 && j >= 6 && j <= 8) {
                 tabuleiro[i][j] = 3;
             } else if (i >= 1 && i <= 3 && j == 7) {
@@ -83,10 +84,10 @@ int main() {
     }
 
     // Imprimir tabuleiro com números das colunas
-    for (int i = 0; i < 10; i++) {
-        printf("%d ", coluna);
-        coluna++;
-        for (int j = 0; j < 10; j++) {
+    for (int i = 0; i < LINHA; i++) {
+        printf("%d ", coluna1);
+        coluna1++;
+        for (int j = 0; j < COLUNA; j++) {
             printf("%d  ", tabuleiro[i][j]);
         }
         printf("\n");
